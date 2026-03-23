@@ -1,0 +1,36 @@
+pipeline{
+    agent any
+    stages{
+        stage('Clone Repository'){
+            steps{
+                echo "Cloning"    git:'' }
+            }
+        }
+        stage('Build test'){
+            steps{
+                echo "Build test started"
+                bat 'dir'
+            }
+        }
+        stage('Running Checks'){
+            steps{
+                echo "Running checks started"
+                bat 'dir'
+            }
+        }
+        stage('Build Successful'){
+            steps{
+                echo "Build Successful"
+                bat 'echo Successful'
+            }
+        }
+    }
+    post{
+        success{
+            echo "Pipeline compeleted Successfully"
+        }
+        failure{
+            echo "Pipeline failed"
+        }
+    }
+}
